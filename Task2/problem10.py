@@ -22,8 +22,7 @@ time.sleep(0.5)
 print("                   Guess Game                        ")
 time.sleep(0.5)
 option = "y"
-while option == "y":
-
+while option.lower() == "y":
     num = random.randint(1, 100)
     guess = input("guess a number between 1 and 100: ")
     while True:
@@ -40,5 +39,5 @@ while option == "y":
                 time.sleep(1)
                 print("======================= Game over =======================")
                 time.sleep(1)
-                break
+            break
                 
