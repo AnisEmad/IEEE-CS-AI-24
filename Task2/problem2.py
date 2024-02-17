@@ -1,14 +1,23 @@
 def test_name(name):
-    while not isinstance(name, str):
+    while not name.isalpha():
         name = input("Name must be string, enter the name again: ")
     return name
 def test_score(score):
     try:
         score = float(score)
+        return score
     except Exception:
         score = input("Score must be float, enter it again: ")
-        test_score(score)
-    return score
+    return test_score(score)
+def test_number(n):
+    try:
+        m = int(n)
+        while m < 2:
+            m = test_number(input("Students must 2 at least: "))
+        return m
+    except Exception:
+        m = input("number of students must be integer: ")
+    return test_number(m)
 def bubble_sort(students):
     n = len(students)
     for i in range(n):
@@ -22,7 +31,7 @@ def bubble_sort(students):
         
 if __name__ == '__main__':
     students = []
-    for _ in range(int(input("Enter the number of students: "))):
+    for _ in range(test_number(input("Enter the number of students: "))):
         name = test_name(input("Enter name: "))
         score = test_score(input("Enter Score: "))
         students.append([name, score])
